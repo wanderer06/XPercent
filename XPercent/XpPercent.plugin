@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Plugin>
+    <Information>
+		<Name>XpPercent</Name>
+		<Author>George Nemes</Author>
+		<Version>1.0</Version>
+	</Information>
+	<Package>XpPercent.Main</Package>
+</Plugin>
