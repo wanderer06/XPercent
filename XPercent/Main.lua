@@ -7,7 +7,7 @@ import 'Turbine.UI.Lotro'
 Turbine.Shell.WriteLine('XPercent is running and tracking your XP!')
 
 window = Turbine.UI.Window()
-window:SetSize(100, 44)
+window:SetSize(100, 66)
 window:SetBackColor(Turbine.UI.Color(0, 0, 0, 0))
 window:SetBlendMode(Turbine.UI.BlendMode.AlphaBlend)
 -- window:SetText('Level Percentage')
@@ -37,8 +37,20 @@ diffXpLabel:SetForeColor(Turbine.UI.Color(0.64, 1, 0, 1))
 diffXpLabel:SetOutlineColor(Turbine.UI.Color(0, 0, 0))
 diffXpLabel:SetText('0')
 
-lastXp = 0
+sessXpLabel = Turbine.UI.Label()
+sessXpLabel:SetParent(window)
+sessXpLabel:SetVisible(true)
+sessXpLabel:SetSize(100, 22)
+sessXpLabel:SetPosition(0, 32)
+sessXpLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16)
+sessXpLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleRight)
+sessXpLabel:SetFontStyle(Turbine.UI.FontStyle.Outline);
+sessXpLabel:SetForeColor(Turbine.UI.Color(0.44, 1, 0, 1))
+sessXpLabel:SetOutlineColor(Turbine.UI.Color(0, 0, 0))
+sessXpLabel:SetText('0')
 
+lastXp = 0
+sessXp = 0
 
 -- helper to register event callbackaaa
 function AddCallback(object, event, callback)
@@ -57,30 +69,41 @@ AddCallback(Turbine.Chat, 'Received', function(sender, args)
 	if (args.ChatType == Turbine.ChatType.Advancement) then
 			-- elminiate any other messages that don't have to do with XP
 			if not string.match(args.Message, "You've earned [%d,]+ XP for a total of [%d,]+ XP.") then return end
-			
-			local totalXp = CalculateXpPercentage(ParseTotalXp(args.Message))
+
+			local gainedXp = ParseXp(args.Message, 1)
+			local totalXp = ParseXp(args.Message, 2)
+
+			if lastXp == 0 then
+				-- we don't have a last xp
+				lastXp = CalculateXpPercentage(totalXp - gainedXp)
+			end
+
+			local totalXp = CalculateXpPercentage(totalXp)
 			local diffXp = totalXp - lastXp
-			
+
+			sessXp = sessXp + diffXp
 			lastXp = totalXp
 
 			local decimalPlacesTotalXp = string.format('%.4f', totalXp) ..' %'
 			local decimalPlacesDiffXp = '+ '.. string.format('%.4f', diffXp) ..' %'
+			local decimalPlacesSessionXp = '+ '.. string.format('%.4f', sessXp) ..' %'
 
 			totalXpLabel:SetText(decimalPlacesTotalXp)
 			diffXpLabel:SetText(decimalPlacesDiffXp)
+			sessXpLabel:SetText(decimalPlacesSessionXp)
 			-- Turbine.Shell.WriteLine('Percent xp: ' ..decimalPlacesXp)
         end
     end
 )
 
-function ParseTotalXp(message)
+function ParseXp(message, pos)
 	local xp = {}
 
 	for matched in string.gmatch(message, '[%d,]+') do
 		table.insert(xp, matched)
 	end
 
-	local xpNoCommas, replaces = string.gsub(xp[2], ',', '')
+	local xpNoCommas, replaces = string.gsub(xp[pos], ',', '')
 
 	return tonumber(xpNoCommas)
 end
