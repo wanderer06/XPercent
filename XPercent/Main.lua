@@ -25,29 +25,29 @@ totalXpLabel:SetForeColor(Turbine.UI.Color(0.84, 1, 1, 1))
 totalXpLabel:SetOutlineColor(Turbine.UI.Color(0, 0, 0))
 totalXpLabel:SetText('0')
 
-diffXpLabel = Turbine.UI.Label()
-diffXpLabel:SetParent(window)
-diffXpLabel:SetVisible(true)
-diffXpLabel:SetSize(100, 22)
-diffXpLabel:SetPosition(0, 16)
-diffXpLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16)
-diffXpLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleRight)
-diffXpLabel:SetFontStyle(Turbine.UI.FontStyle.Outline);
-diffXpLabel:SetForeColor(Turbine.UI.Color(0.64, 1, 0, 1))
-diffXpLabel:SetOutlineColor(Turbine.UI.Color(0, 0, 0))
-diffXpLabel:SetText('0')
-
 sessXpLabel = Turbine.UI.Label()
 sessXpLabel:SetParent(window)
 sessXpLabel:SetVisible(true)
 sessXpLabel:SetSize(100, 22)
-sessXpLabel:SetPosition(0, 32)
+sessXpLabel:SetPosition(0, 16)
 sessXpLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16)
 sessXpLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleRight)
 sessXpLabel:SetFontStyle(Turbine.UI.FontStyle.Outline);
 sessXpLabel:SetForeColor(Turbine.UI.Color(0.44, 1, 0, 1))
 sessXpLabel:SetOutlineColor(Turbine.UI.Color(0, 0, 0))
 sessXpLabel:SetText('0')
+
+diffXpLabel = Turbine.UI.Label()
+diffXpLabel:SetParent(window)
+diffXpLabel:SetVisible(true)
+diffXpLabel:SetSize(100, 22)
+diffXpLabel:SetPosition(0, 32)
+diffXpLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16)
+diffXpLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleRight)
+diffXpLabel:SetFontStyle(Turbine.UI.FontStyle.Outline);
+diffXpLabel:SetForeColor(Turbine.UI.Color(0.64, 1, 0, 1))
+diffXpLabel:SetOutlineColor(Turbine.UI.Color(0, 0, 0))
+diffXpLabel:SetText('0')
 
 lastXp = 0
 sessXp = 0
