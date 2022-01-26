@@ -33,7 +33,7 @@ sessXpLabel:SetPosition(0, 16)
 sessXpLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16)
 sessXpLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleRight)
 sessXpLabel:SetFontStyle(Turbine.UI.FontStyle.Outline);
-sessXpLabel:SetForeColor(Turbine.UI.Color(0.44, 1, 0, 1))
+sessXpLabel:SetForeColor(Turbine.UI.Color(0.84, 1, 0, 1))
 sessXpLabel:SetOutlineColor(Turbine.UI.Color(0, 0, 0))
 sessXpLabel:SetText('0')
 
