@@ -3,7 +3,7 @@
     <Information>
 		<Name>XPercent</Name>
 		<Author>George Nemes</Author>
-		<Version>1.1</Version>
+		<Version>1.1.2</Version>
 	</Information>
 	<Package>XPercent.Main</Package>
 </Plugin>

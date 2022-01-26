@@ -45,7 +45,7 @@ diffXpLabel:SetPosition(0, 32)
 diffXpLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16)
 diffXpLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleRight)
 diffXpLabel:SetFontStyle(Turbine.UI.FontStyle.Outline);
-diffXpLabel:SetForeColor(Turbine.UI.Color(0.64, 1, 0, 1))
+diffXpLabel:SetForeColor(Turbine.UI.Color(0.84, 1, 0, 1))
 diffXpLabel:SetOutlineColor(Turbine.UI.Color(0, 0, 0))
 diffXpLabel:SetText('0')
 
